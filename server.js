@@ -3,15 +3,22 @@ var app = express()
 var port = process.env.PORT || 3000;
 
 app.use(express.static(__dirname + '/public'));
+app.set('views', (__dirname + '/public'))
+app.set('view engine', 'pug')
 
 app.all("*", function(req, res, next) {
-      console.log("test")
-    res.writeHead(200, { "Content-Type": "text/plain" });
+    //res.writeHead(200, { "Content-Type": "text/plain" });
     next();
 });
 
 app.get('/', function(req, res) {
-  res.render('index')
+    var regex = /\(([^)]+)\)/
+    var json = {
+        "ipaddress": req.headers['x-forwarded-for'],
+        "language": req.headers['accept-language'].split(',')[0],
+        "software": regex.exec(req.headers['user-agent'])[1]
+    }
+  res.render('index', {json: JSON.stringify(json)})
 });
 
 app.get("*", function(req, res) {

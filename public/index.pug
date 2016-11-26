@@ -1,0 +1,30 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    title Whoami Microservice Landing Page
+    link(rel='stylesheet prefetch', href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css')
+    link(rel='stylesheet', href='css/style.css')
+  body
+    .col-md-8.col-md-offset-2
+      h1 Whoami Microservice
+      hr
+      h2 User Story:
+      ul
+        li I can get the IP address, language and operating system for my browser
+      h2 Result
+      code
+        | #{json}
+      hr
+      p
+        | This was completed as an API project for the FreeCodeCamp Back End Certification, check out the details 
+        a(href='https://www.freecodecamp.com/challenges/request-header-parser-microservice', target='_blank') here
+        | .
+      footer
+        a(href='https://github.com/garrickg', target='_blank')
+          i.fa.fa-2x.fa-github(aria-hidden='true')
+        a(href='http://codepen.io/garrickg/', target='_blank')
+          i.fa.fa-2x.fa-codepen(aria-hidden='true')
+        a(href='https://www.freecodecamp.com/garrickg', target='_blank')
+          i.fa.fa-2x.fa-free-code-camp(aria-hidden='true')
+    script(src='https://use.fontawesome.com/1dd1d70e46.js')
